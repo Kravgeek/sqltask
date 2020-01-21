@@ -1,0 +1,5 @@
+SELECT adverts.category_name, costs.cost  
+FROM adverts 
+INNER JOIN (SELECT category_name, AVG(cost) AS AvgCost 
+FROM costs GROUP BY category_name) costs ON 
+adverts.advert_id=costs.advert_id;
